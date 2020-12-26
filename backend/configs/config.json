@@ -1,14 +1,11 @@
 {
   "port" : 8081,
+  "tokenSecret": "passwd",
   "dbCredentials" :
   {
     "host" : "localhost",
     "user" : "root",
     "password" : "passwd",
-    "database" : "szop",
-    "tables" :
-    {
-      "users" : "users"
-    }
+    "database" : "szop"
   }
 }

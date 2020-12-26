@@ -15,3 +15,11 @@ mysql -u root -p
 ```SQL.mysql
 CREATE DATABASE szop CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 ```
+
+```SQL.mysql
+ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY 'passwd';
+```
+
+```SQL.mysql
+flush privileges;
+```
