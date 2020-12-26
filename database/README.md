@@ -1,9 +1,9 @@
 # Create mysql docker cointainer
-## Fix Node.js authentication problem
 ```powershell
 docker run --name szop -p 3306:3306 -e MYSQL_ROOT_PASSWORD=passwd -d mysql:latest
 ```
 
+## Fix Node.js authentication problem
 ```powershell
 docker exec -it szop bash
 ```
