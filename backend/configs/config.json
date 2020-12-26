@@ -1,0 +1,14 @@
+{
+  "port" : 3001,
+  "dbCredentials" :
+  {
+    "host" : "localhost",
+    "user" : "root",
+    "password" : "passwd",
+    "database" : "szop",
+    "tables" :
+    {
+      "users" : "users"
+    }
+  }
+}
