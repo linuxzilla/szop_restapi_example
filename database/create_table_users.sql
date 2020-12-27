@@ -1,7 +1,10 @@
 CREATE TABLE IF NOT EXISTS `users` (
   id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  email varchar(255),
-  username varchar(255) NOT NULL,
+  email varchar(255) UNIQUE NOT NULL,
+  username varchar(255) UNIQUE NOT NULL,
   password CHAR(64) NOT NULL,
-  name varchar(255) NOT NULL
+  name varchar(255) NOT NULL,
+  roleId INT UNSIGNED DEFAULT '2',
+  uuid CHAR(128) UNIQUE NOT NULL ,
+  FOREIGN KEY (roleId) REFERENCES roles(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

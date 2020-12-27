@@ -1,6 +1,6 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const config = require("./configs/config.json");
+const router = require('./routes/router');
 
 /*
 REST API beadandó
@@ -16,8 +16,8 @@ A követelményeket Király Sándor tanár úr határozta meg:REST követelmény
 
 const app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use('/user',router);
 
 app.listen(config.port, () => {
     console.log("Server is running on port %s.", config.port);
