@@ -14,7 +14,7 @@ mysql -u root -p
 CREATE DATABASE szop CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 ```
 
-## Fix Node.js authentication problem
+## Fix mysql authentication problem
 ```powershell
 docker exec -it szop bash
 ```
