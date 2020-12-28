@@ -15,14 +15,14 @@ exports.login = async (req, res) => {
             }
             console.log("New Login: %s", req.body.username_or_email)
             const token = jwt.sign({uuid: user.uuid}, config.tokenSecret);
+            await User.UpdateToken(token, user.uuid);
             res.header("auth-token", token).send({
-                "token": token,
-                "userData": {"uuid": user.uuid, "email": user.email, "username": user.username, "name": user.name}
+                "userData": {"email": user.email, "username": user.username, "name": user.name}
             });
         }
     } catch (err) {
         if (err instanceof NotFoundError) {
-            res.status(401).send(`Mobile/Email or Password is wrong`);
+            res.status(401).send(`Username/Email or Password is wrong`);
         } else {
             let error_data = {
                 entity: 'User',

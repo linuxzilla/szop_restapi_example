@@ -1,6 +1,7 @@
 const express = require("express");
 const config = require("./configs/config.json");
-const router = require('./routes/router');
+const userRouter = require('./routes/userRouter');
+const bookRouter = require('./routes/bookRouter')
 
 /*
 REST API beadandó
@@ -17,7 +18,8 @@ A követelményeket Király Sándor tanár úr határozta meg:REST követelmény
 const app = express();
 
 app.use(express.json());
-app.use('/user',router);
+app.use('/user',userRouter);
+app.use('/book',bookRouter);
 
 app.listen(config.port, () => {
     console.log("Server is running on port %s.", config.port);

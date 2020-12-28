@@ -5,6 +5,7 @@ const { NotFoundError } = require("../helpers/NotFoundError");
 const { EmailAlreadyExists } = require("../helpers/EmailAlreadyExists");
 const { UsernameAlreadyExists } = require("../helpers/UsernameAlreadyExists");
 const { UuidAlreadyExist } = require("../helpers/UuidAlreadyExist");
+const { InvalidToken } = require("../helpers/InvalidToken");
 
 const UserModel = function(user) {
     if( typeof user.id != 'undefined' ) {
@@ -18,6 +19,7 @@ const UserModel = function(user) {
         this.roleId = user.roleId;
     }
     this.uuid = user.uuid;
+    this.sessionToken = user.sessionToken;
 };
 
 UserModel.login = async (value) => {
@@ -51,5 +53,17 @@ UserModel.create = async (value) => {
     }
     await db.query(constants.ADD_NEW_USER, [value.email, value.username, value.password,value.name, value.uuid]);
 };
+
+UserModel.UpdateToken = async (token, uuid) => {
+    await db.query(constants.SET_SESSION_TOKEN,[token, uuid]);
+}
+
+UserModel.ValidateSessionToken = async (token, uuid) => {
+    let tmp = await db.query(constants.GET_UUID, uuid);
+    if (tmp[0].sessionToken !== token) {
+        throw new InvalidToken();
+    }
+    //return tmp[0].sessionToken;
+}
 
 module.exports = UserModel;

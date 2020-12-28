@@ -1,6 +1,7 @@
-const db = require("../database/db.js");
+const db = require("../database/db");
+const constants = require("../database/dbConstants");
 
-const Book = function(book) {
+const BookModel = function(book) {
     if( typeof book.id != 'undefined' ) {
         this.id = book.id;
     }
@@ -15,3 +16,10 @@ const Book = function(book) {
     this.likes = book.likes;
     this.dislikes = book.dislikes;
 };
+
+BookModel.GetAllBooks = async () => {
+    let tmp = await db.query(constants.GET_ALL_BOOKS);
+    return tmp;
+}
+
+module.exports = BookModel;

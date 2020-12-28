@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   genreId INT UNSIGNED,
   isbn varchar(255) NOT NULL UNIQUE,
   title varchar(255) NOT NULL,
+  originalTitle varchar(255) NOT NULL ,
   releaseDate date NOT NULL,
   author varchar(255) NOT NULL,
   description text,
