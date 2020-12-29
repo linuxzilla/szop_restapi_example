@@ -73,6 +73,12 @@
     <Compile Include="Cotrolers\ApiController.cs" />
     <Compile Include="Enums\Genres.cs" />
     <Compile Include="Enums\UserRoles.cs" />
+    <Compile Include="Exceptions\InvalidAuthTokenException.cs" />
+    <Compile Include="Exceptions\MissingAuthTokenException.cs" />
+    <Compile Include="Exceptions\NoSuchUserException.cs" />
+    <Compile Include="Exceptions\ServerDatabaseErrorException.cs" />
+    <Compile Include="Exceptions\UnknownApiErrorException.cs" />
+    <Compile Include="Exceptions\WrongPasswordException.cs" />
     <Compile Include="Helpers\LoginHelper.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -112,8 +118,6 @@
     <Resource Include="Assets\dislike.png" />
     <Resource Include="Assets\like.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Exceptions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

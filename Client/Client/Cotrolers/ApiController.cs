@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 
 namespace Client.Cotrolers
 {
@@ -26,6 +28,17 @@ namespace Client.Cotrolers
                }
             );
             IRestResponse response = client.Execute(request);
+
+            HttpStatusCode statusCode = response.StatusCode;
+            int numericStatusCode = (int)statusCode;
+
+            if (numericStatusCode == 401)
+                throw new NoSuchUserException();
+            else if (numericStatusCode == 400)
+                throw new WrongPasswordException();
+            else if (numericStatusCode != 200)
+                throw new UnknownApiErrorException();
+
             string token = response.Headers.ToList().Find(x => x.Name == "auth-token").Value.ToString();
 
             //rework needed only for testing
@@ -34,6 +47,27 @@ namespace Client.Cotrolers
             User.SessionToken = token;
         }
 
+        public static List<BookModel> GetAllBooks()
+        {
+            var client = new RestClient(serverURl + bookRoute);
+            var request = new RestRequest("allBook", Method.GET);
+            request.RequestFormat = DataFormat.Json;
+            request.AddHeader("Authorization", User.SessionToken);
+            var response = client.Execute(request);
 
+            HttpStatusCode statusCode = response.StatusCode;
+            int numericStatusCode = (int)statusCode;
+
+            if (numericStatusCode == 401)
+                throw new MissingAuthTokenException();
+            else if (numericStatusCode == 400)
+                throw new InvalidAuthTokenException();
+            else if (numericStatusCode == 500)
+                throw new ServerDatabaseErrorException();
+            else if (numericStatusCode != 200)
+                throw new UnknownApiErrorException();
+
+            return JsonConvert.DeserializeObject<List<BookModel>>(response.Content);          
+        }
     }
 }
