@@ -16,9 +16,9 @@ exports.login = async (req, res) => {
             console.log("New Login: %s", req.body.username_or_email)
             const token = jwt.sign({uuid: user.uuid}, config.tokenSecret);
             await User.UpdateToken(token, user.uuid);
-            res.header("auth-token", token).send({
-                "userData": {"email": user.email, "username": user.username, "name": user.name}
-            });
+            res.header("auth-token", token).send(
+                {"uuid":user.uuid, "role" : user.roleId, "email": user.email, "username": user.username, "name": user.name}
+            );
         }
     } catch (err) {
         if (err instanceof NotFoundError) {
