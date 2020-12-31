@@ -23,6 +23,48 @@ namespace Client
         public MainWindow()
         {
             InitializeComponent();
+            GridLogin.Visibility = Visibility.Visible;
+            GridMenu.Visibility = Visibility.Hidden;
+        }
+
+        private void btLike_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btAdmin_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void dgList_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btRefresh_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btLogout_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btDislike_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btLogin_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GridMenu_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

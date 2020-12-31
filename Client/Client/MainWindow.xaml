@@ -26,7 +26,7 @@
         </Grid>
 
         <Grid x:Name="GridMenu" Visibility="Visible" Width="900" Height="Auto" Margin="0,0,-8,0" Loaded="GridMenu_Loaded">
-            <DataGrid x:Name="dgList" Height="334" Margin="425,38,40,0" VerticalAlignment="Top" RowHeight="21" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow">
+            <DataGrid x:Name="dgList" Height="334" Margin="425,38,40,0" VerticalAlignment="Top" RowHeight="21" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow" Loaded="dgList_Loaded">
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="10" Header="#" Binding="{Binding Id}" />
                     <DataGridTextColumn Width="*" Header="Cím" Binding="{Binding Title}" />

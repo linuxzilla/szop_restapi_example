@@ -7,5 +7,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   roleId INT UNSIGNED DEFAULT '2',
   uuid CHAR(128) UNIQUE NOT NULL ,
   sessionToken varchar(255) UNIQUE,
+  userLoggedIn BOOL DEFAULT FALSE,
   FOREIGN KEY (roleId) REFERENCES roles(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
