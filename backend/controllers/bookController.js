@@ -40,9 +40,11 @@ exports.deleteBook = async (req, res) => {
     }
 };
 
+/*
 exports.modifyBook = async (req, res) => {
 
 };
+*/
 
 exports.likeBook = async (req, res) => {
     try {
