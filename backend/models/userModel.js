@@ -46,7 +46,7 @@ UserModel.create = async (value) => {
         if (emailExits.length > 0 && usernameExits.length > 0) {
             throw new EmailAndUsernameAlreadyExists("Username and email address already exist");
         }
-        else if (usernameExits.length >0) {
+        else if (usernameExits.length > 0) {
            throw new UsernameAlreadyExists("Username already exist");
         }
         else {
@@ -65,6 +65,10 @@ UserModel.UpdateToken = async (token, uuid) => {
 };
 
 UserModel.ValidateSessionToken = async (token, uuid) => {
+    let returnValue = {
+        roleId : null,
+        id : null
+    }
     let tmp = await db.query(constants.GET_UUID, uuid);
     if (tmp[0].userLoggedIn !== 1) {
         throw new UserNotLoggedIn();
@@ -72,7 +76,9 @@ UserModel.ValidateSessionToken = async (token, uuid) => {
     if (tmp[0].sessionToken !== token) {
         throw new InvalidToken();
     }
-    return tmp[0].roleId;
+    returnValue.roleId = tmp[0].roleId;
+    returnValue.id = tmp[0].id;
+    return returnValue;
 };
 
 module.exports = UserModel;

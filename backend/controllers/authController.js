@@ -13,7 +13,7 @@ exports.authenticate = async (req, res, next) => {
             token = token.slice(7, token.length).trimLeft();
         }
         const tokenData = jwt.verify(token, config.tokenSecret);
-        req.role = await User.ValidateSessionToken(token, tokenData.uuid);
+        req.user = await User.ValidateSessionToken(token, tokenData.uuid);
         next();
     }
     catch (err) {
@@ -22,7 +22,7 @@ exports.authenticate = async (req, res, next) => {
 };
 
 exports.adminOnly = (req, res, next) => {
-    if (req.roleId !== roles.admin) {
+    if (req.user.roleId !== roles.admin) {
         res.status(403).send("Access denied");
     }
     else {
