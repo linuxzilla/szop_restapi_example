@@ -8,11 +8,11 @@ namespace Client
 {
     public enum Genres
     {
-        CLASSIC,
-        CRIME_DETECTIVE,
-        EPIC,
-        FABLE,
-        FAIRY_TALE,
-        FANTASY,
+        CLASSIC = 1,
+        CRIME_DETECTIVE = 2,
+        EPIC = 3,
+        FABLE = 4,
+        FAIRY_TALE = 5,
+        FANTASY = 6,
     }
 }

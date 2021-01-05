@@ -79,7 +79,9 @@
     <Compile Include="Exceptions\ServerDatabaseErrorException.cs" />
     <Compile Include="Exceptions\UnknownApiErrorException.cs" />
     <Compile Include="Exceptions\WrongPasswordException.cs" />
+    <Compile Include="Helpers\AddBookHelper.cs" />
     <Compile Include="Helpers\LoginHelper.cs" />
+    <Compile Include="Helpers\NewUserHelper.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

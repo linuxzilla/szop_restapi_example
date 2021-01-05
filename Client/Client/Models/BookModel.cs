@@ -19,5 +19,28 @@ namespace Client
         public int Price { get; set; }
         public int Likes { get; set; }
         public int Dislikes { get;  set; }
+        public string GenreFormated 
+        { 
+            get 
+            {
+                switch (this.Genre)
+                {
+                    case Genres.CLASSIC:
+                        return "CLASSIC";
+                    case Genres.CRIME_DETECTIVE:
+                        return "CRIME_DETECTIVE";
+                    case Genres.EPIC:
+                        return "EPIC";
+                    case Genres.FABLE:
+                        return "FABLE";
+                    case Genres.FAIRY_TALE:
+                        return "FAIRY_TALE";
+                    case Genres.FANTASY:
+                        return "FANTASY";
+                    default:
+                        return "Other";
+                }
+            } 
+        }
     }
 }

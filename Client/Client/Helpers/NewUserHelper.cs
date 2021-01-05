@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace Client
 {
-    class UnknownApiErrorException : Exception
+    class NewUserHelper
     {
-        public UnknownApiErrorException(string message) 
-            : base(message)
-        {
 
-        }
     }
 }

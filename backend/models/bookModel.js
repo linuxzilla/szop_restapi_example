@@ -20,6 +20,11 @@ BookModel.GetAllBooks = async () => {
     return tmp;
 };
 
+BookModel.GetBookById = async (value) => {
+  let tmp = await db.query(constants.GET_BOOK, value);
+  return tmp[0];
+};
+
 BookModel.AddBook = async (value) => {
     await db.query(constants.ADD_BOOK, [value.title, value.genreId, value.description,
     value.originalTitle, value.author, value.isbn, value.releaseDate, value.price]);
@@ -49,12 +54,14 @@ BookModel.Dislike = async (bookId, userId) => {
         if( tmp.length ) {
             await db.query(constants.DELETE_LIKE, tmp[0].id);
         }
-        await db.query(constants.LIKE_BOOK, [bookId, userId])
+        await db.query(constants.DISLIKE_BOOK, [bookId, userId])
     }
 };
 
 BookModel.Delete = async (value) => {
-    await db.query();
+    await db.query(constants.DELETE_BOOK, value);
+    await db.query(constants.DELETE_DISLIKE_BY_BOOKID, value);
+    await db.query(constants.DELETE_LIKE_BY_BOOKID, value);
 }
 
 module.exports = BookModel;

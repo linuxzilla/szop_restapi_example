@@ -23,40 +23,87 @@
             <Label Content="Felhasználónév/Email cím:" HorizontalAlignment="Center" Margin="82,120,503,0" VerticalAlignment="Top" FontSize="20" Width="315"/>
             <Label Content="Jelszó:" HorizontalAlignment="Center" Margin="251.388,161.286,574.582,0" VerticalAlignment="Top" FontSize="20"/>
             <Button x:Name="btLogin" Content="Bejelentkezés" Click="btLogin_Click" HorizontalAlignment="Center" Margin="359.963,236.273,382.037,0" VerticalAlignment="Top" Width="150" Height="35" Background="#FF0ED495" Foreground="#FFFBFBFB" FontSize="20" BorderThickness="0"/>
+            <Button x:Name="btRegistartion" Content="Regisztráció" Click="btRegistartionFrom_Click" HorizontalAlignment="Center" Margin="364,292,386,0" VerticalAlignment="Top" Width="150" Height="35" Background="#FF0E20D4" Foreground="#FFFBFBFB" FontSize="20" BorderThickness="0"/>
         </Grid>
 
-        <Grid x:Name="GridMenu" Visibility="Visible" Width="900" Height="Auto" Margin="0,0,-8,0" Loaded="GridMenu_Loaded">
-            <DataGrid x:Name="dgList" Height="334" Margin="425,38,40,0" VerticalAlignment="Top" RowHeight="21" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow" Loaded="dgList_Loaded">
+        <Grid x:Name="GridRegistration" Visibility="Visible" Width="900" Margin="0,0,-8,-8" >
+            <TextBox x:Name="tbRegUsername" Height="35" Margin="394.095,121.286,327.905,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
+                <TextBox.Background>
+                    <SolidColorBrush Color="#FF3CF9F9" Opacity="0.2"/>
+                </TextBox.Background>
+
+            </TextBox>
+            <PasswordBox x:Name="tbRegPassword" HorizontalAlignment="Center" Width="170" Margin="398,241,332,0" VerticalAlignment="Top" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
+                <PasswordBox.Background>
+                    <SolidColorBrush Color="#FF3CF9F9" Opacity="0.2"/>
+                </PasswordBox.Background>
+            </PasswordBox>
+            <Label Content="Kérlek add meg az adataidat" HorizontalAlignment="Center" Margin="197.264,56.742,220.318,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="482.418"/>
+            <Label Content="Felhasználónév:" HorizontalAlignment="Center" Margin="178,120,560,0" VerticalAlignment="Top" FontSize="20" Width="162"/>
+            <Label Content="Jelszó:" HorizontalAlignment="Center" Margin="178,237,579,0" VerticalAlignment="Top" FontSize="20" Width="143"/>
+            <TextBox x:Name="tbRegEmail" Height="35" Margin="398,161,332,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
+                <TextBox.Background>
+                    <SolidColorBrush Color="#FF3CF9F9" Opacity="0.2"/>
+                </TextBox.Background>
+
+            </TextBox>
+            <Label Content="Email:" HorizontalAlignment="Center" Margin="178,159,560,0" VerticalAlignment="Top" FontSize="20" Width="162"/>
+
+            <Label Content="Teljesnév:" HorizontalAlignment="Center" Margin="178,201,560,0" VerticalAlignment="Top" FontSize="20" Width="162"/>
+            <TextBox x:Name="tbFullname" Height="35" Margin="398,201,332,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
+                <TextBox.Background>
+                    <SolidColorBrush Color="#FF3CF9F9" Opacity="0.2"/>
+                </TextBox.Background>
+
+            </TextBox>
+            <Button x:Name="btRegistartion_Copy" Content="Regisztráció" Click="btRegistartion_Click" HorizontalAlignment="Center" Margin="364,292,386,0" VerticalAlignment="Top" Width="150" Height="35" Background="#FF0E20D4" Foreground="#FFFBFBFB" FontSize="20" BorderThickness="0"/>
+            <Button x:Name="btRegistartion_Back" Content="Vissza" Click="btRegistartion_Back" HorizontalAlignment="Center" Margin="364,332,386,0" VerticalAlignment="Top" Width="150" Height="35" Background="#FF0E20D4" Foreground="#FFFBFBFB" FontSize="20" BorderThickness="0"/>
+        </Grid>
+
+        <Grid x:Name="GridMenu" Visibility="Hidden" Width="900" Height="Auto" Margin="0,-10,-6,10" Loaded="GridMenu_Loaded">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="63*"/>
+                <RowDefinition Height="190*"/>
+            </Grid.RowDefinitions>
+            <DataGrid x:Name="dgList" Height="334" Margin="425,38,40,0" VerticalAlignment="Top" RowHeight="21" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow" MouseDoubleClick="dgList_MouseDoubleClick" Grid.RowSpan="2">
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="10" Header="#" Binding="{Binding Id}" />
                     <DataGridTextColumn Width="*" Header="Cím" Binding="{Binding Title}" />
                     <DataGridTextColumn Width="*" Header="Eredeti cím" Binding="{Binding OriginalTitle}" />
-                    <DataGridTextColumn Width="*" Header="Műfaj" Binding="{Binding Genre}" />
+                    <DataGridTextColumn Width="*" Header="Műfaj" Binding="{Binding GenreFormated}" />
                     <DataGridTextColumn Width="*" Header="Szerző" Binding="{Binding Author}" />
-                    <DataGridTextColumn Width="40" Header="Likes" Binding="{Binding Like}" />
-                    <DataGridTextColumn Width="50" Header="Dislikes" Binding="{Binding Dislike}" />
+                    <DataGridTextColumn Width="40" Header="Likes" Binding="{Binding Likes}" />
+                    <DataGridTextColumn Width="50" Header="Dislikes" Binding="{Binding Dislikes}" />
                 </DataGrid.Columns>
             </DataGrid>
 
-            <Button x:Name="btLike" Click="btLike_Click" HorizontalAlignment="Center" Margin="40,283,784,0" VerticalAlignment="Top" Width="76" Height="76" BorderThickness="0">
+            <Button x:Name="btLike" Click="btLike_Click" HorizontalAlignment="Center" Margin="40,210,784,0" VerticalAlignment="Top" Width="76" Height="76" BorderThickness="0" Grid.Row="1">
                 <Button.Background>
                     <ImageBrush ImageSource="Assets/like.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="btDislike" Click="btDislike_Click" HorizontalAlignment="Center" Margin="305,283,515,0" VerticalAlignment="Top" Width="76" Height="76" BorderThickness="0" RenderTransformOrigin="0.416,0.464">
+            <Button x:Name="btDislike" Click="btDislike_Click" HorizontalAlignment="Center" Margin="309,210,515,0" VerticalAlignment="Top" Width="76" Height="76" BorderThickness="0" RenderTransformOrigin="0.416,0.464" Grid.Row="1">
                 <Button.Background>
                     <ImageBrush ImageSource="Assets/dislike.png"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="btAdd" Content="Admin menü" Click="btAdmin_Click" HorizontalAlignment="Center" Margin="40,383,732,0" VerticalAlignment="Top" Width="128" FontSize="20" BorderThickness="0" Background="#FF0E17D4" Foreground="#FFFBFBFB"/>
-            <Button x:Name="btLogout" Content="Kijelentkezés" Click="btLogout_Click" HorizontalAlignment="Center" Margin="721,383,40,0" VerticalAlignment="Top" Width="139" FontSize="20" BorderThickness="0" Background="#FFD40E0E" Foreground="#FFFBFBFB"/>
-            <Button x:Name="btRefresh" Content="Frissítés" Click="btRefresh_Click" HorizontalAlignment="Center" Margin="425,383,336,0" VerticalAlignment="Top" Width="139" FontSize="20" BorderThickness="0" Background="#FF0E17D4" Foreground="#FFFBFBFB"/>
-
-            <Label x:Name="lbLikeNum" HorizontalAlignment="Center" Margin="143,298.343,747,0" VerticalAlignment="Top" Content=""/>
-            <Label x:Name="lbDisLikeNum" HorizontalAlignment="Center" Margin="323,298.343,567,0" VerticalAlignment="Top" Content=""/>
-            <ListBox HorizontalAlignment="Left" Height="110" Margin="40,38,0,0" VerticalAlignment="Top" Width="345"/>
-            <TextBlock HorizontalAlignment="Left" Margin="40,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="89" Width="343"/>
+            <Button x:Name="btAdd" Content="Hozzáadás" Click="btAdd_Click" HorizontalAlignment="Center" Margin="42,38,730,0" VerticalAlignment="Top" Width="128" FontSize="20" BorderThickness="0" Background="#FF0ED48C" Foreground="#FFFBFBFB"/>
+            <Button x:Name="btLogout" Content="Kijelentkezés" Click="btLogout_Click" HorizontalAlignment="Center" Margin="721,257,40,0" VerticalAlignment="Top" Width="139" FontSize="20" BorderThickness="0" Background="#FFD40E0E" Foreground="#FFFBFBFB" Grid.Row="1"/>
+            <Button x:Name="btRefresh" Content="Frissítés" Click="btRefresh_Click" HorizontalAlignment="Center" Margin="425,257,336,0" VerticalAlignment="Top" Width="139" FontSize="20" BorderThickness="0" Background="#FF0E17D4" Foreground="#FFFBFBFB" Grid.Row="1"/>
+            <TextBlock x:Name="tbDesc" HorizontalAlignment="Left" Margin="42,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="58" Width="343" Grid.Row="1"/>
+            <Button x:Name="btDelete" Content="Törlés" Click="btDelete_Click" HorizontalAlignment="Center" Margin="257,38,515,0" VerticalAlignment="Top" Width="128" FontSize="20" BorderThickness="0" Background="#FFD40E44" Foreground="#FFFBFBFB"/>
+            <Label x:Name="lbTitle" Content="" HorizontalAlignment="Left" Margin="126,82,0,0" VerticalAlignment="Top" FontSize="20"/>
+            <Label Content="Cím: " HorizontalAlignment="Left" Margin="40,82,0,0" VerticalAlignment="Top" FontSize="20" RenderTransformOrigin="0.5,0.459"/>
+            <Label Content="Eredeti cím: " HorizontalAlignment="Left" Margin="40,3,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.459" Grid.Row="1"/>
+            <Label Content="Szerző: " HorizontalAlignment="Left" Margin="42,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.459" Grid.Row="1"/>
+            <Label Content="ISBN: " HorizontalAlignment="Left" Margin="42,60,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.459" Grid.Row="1"/>
+            <Label Content="Ár: " HorizontalAlignment="Left" Margin="42,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.459" Grid.Row="1" FontSize="18"/>
+            <Label x:Name="lbOriginalTitile" Content="" HorizontalAlignment="Left" Margin="126,3,0,0" VerticalAlignment="Top" RenderTransformOrigin="5.2,1.038" Grid.Row="1"/>
+            <Label x:Name="lbAuthor" Content="" HorizontalAlignment="Left" Margin="126,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="5.2,1.038" Grid.Row="1"/>
+            <Label x:Name="lbIsbn" Content="" HorizontalAlignment="Left" Margin="126,60,0,0" VerticalAlignment="Top" RenderTransformOrigin="5.2,1.038" Grid.Row="1"/>
+            <Label x:Name="lbPrice" Content="" HorizontalAlignment="Left" Margin="126,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="5.2,1.038" Grid.Row="1" FontSize="18"/>
 
         </Grid>
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top"/>
     </Grid>
 </Window>

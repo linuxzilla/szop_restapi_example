@@ -60,7 +60,7 @@ exports.registration = async (req, res) => {
 
 exports.logout = async (req , res) => {
     try {
-        await User.logout(req.params.id);
+        await User.logout(req.user.id);
         res.status(200).send("User logged out");
     }
     catch (err) {

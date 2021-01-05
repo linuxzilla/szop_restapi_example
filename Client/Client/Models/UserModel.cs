@@ -13,6 +13,5 @@ namespace Client
         public string Username { get; set; }
         public UserRoles Role { get; set; }
         public string Email { get; set; }
-        public string SessionToken { get; set; }
     }
 }

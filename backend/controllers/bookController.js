@@ -46,8 +46,19 @@ exports.modifyBook = async (req, res) => {
 };
 */
 
+exports.getBookById = async (req, res) => {
+    try {
+        let tmp = await Book.GetBookById(req.params.id);
+        res.status(200).send(tmp);
+    }
+    catch (err) {
+        res.status(501).send(err);
+    }
+};
+
 exports.likeBook = async (req, res) => {
     try {
+        console.log(req.params.book)
         await Book.Like(req.params.book, req.user.id)
         res.status(200).send('Book liked');
     }
@@ -58,7 +69,7 @@ exports.likeBook = async (req, res) => {
 
 exports.dislikeBook = async (req, res) => {
     try {
-        await Book.Like(req.params.book, req.user.id)
+        await Book.Dislike(req.params.book, req.user.id)
         res.status(200).send('Book disliked');
     }
     catch (err) {

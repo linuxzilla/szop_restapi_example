@@ -8,7 +8,5 @@ CREATE TABLE IF NOT EXISTS `books` (
   author varchar(255) NOT NULL,
   description text,
   price DOUBLE NOT NULL,
-  likes INT UNSIGNED DEFAULT '0',
-  dislikes INT UNSIGNED DEFAULT '0',
   FOREIGN KEY (genreId) REFERENCES genres(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

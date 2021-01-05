@@ -5,7 +5,7 @@ const authController = require('../controllers/authController')
 bookRouter.get('/',authController.authenticate, bookController.allBook);
 bookRouter.put('/like/:book', authController.authenticate, bookController.likeBook);
 bookRouter.put('/dislike/:book', authController.authenticate, bookController.dislikeBook);
-bookRouter.put('/book/:id', authController.authenticate, bookController.dislikeBook);
+bookRouter.put('/book/:id', authController.authenticate, bookController.getBookById);
 
 bookRouter.post('/add',authController.authenticate, authController.adminOnly, bookController.allBook);
 bookRouter.delete('/delete/:id',authController.authenticate, authController.adminOnly, bookController.deleteBook);
