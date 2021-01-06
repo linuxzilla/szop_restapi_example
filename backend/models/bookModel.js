@@ -1,5 +1,7 @@
 const db = require("../database/db");
 const constants = require("../database/dbConstants");
+const ISBN = require( 'isbn-validate' );
+const { InvalidIsbn } = require("../helpers/Exceptions/InvalidIsbn");
 
 const BookModel = function(book) {
     if( typeof book.id != 'undefined' ) {
@@ -26,6 +28,9 @@ BookModel.GetBookById = async (value) => {
 };
 
 BookModel.AddBook = async (value) => {
+    if (ISBN.Validate(value.isbn.replace(/-/g, ""))) {
+        throw new InvalidIsbn;
+    }
     await db.query(constants.ADD_BOOK, [value.title, value.genreId, value.description,
     value.originalTitle, value.author, value.isbn, value.releaseDate, value.price]);
 };

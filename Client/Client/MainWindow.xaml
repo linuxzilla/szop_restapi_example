@@ -7,6 +7,48 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="auto" Width="900">
     <Grid>
+        <Grid x:Name="GridAddBook" Visibility="Hidden" Width="900" Margin="0,0,-8,-8" >
+            <TextBox x:Name="tbAddTitle" Height="35" Margin="394.095,121.286,327.905,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
+                <TextBox.Background>
+                    <SolidColorBrush Color="#FF3CF9F9" Opacity="0.2"/>
+                </TextBox.Background>
+
+            </TextBox>
+            <Label Content="Új könyv hozzáadása" HorizontalAlignment="Center" Margin="197.264,56.742,220.318,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="482.418"/>
+            <Label Content="Cím:" HorizontalAlignment="Center" Margin="331,120,507,0" VerticalAlignment="Top" FontSize="20" Width="62"/>
+            <Button x:Name="btAddNewBookFinished" Content="Hozzáadás" Click="btLogin_Click" HorizontalAlignment="Center" Margin="724,10,26,0" VerticalAlignment="Top" Width="150" Height="35" Background="#FF0ED495" Foreground="#FFFBFBFB" FontSize="20" BorderThickness="0"/>
+            <Button x:Name="btBack_Main" Content="Vissza" Click="btRegistartionFrom_Click" HorizontalAlignment="Center" Margin="21,10,729,0" VerticalAlignment="Top" Width="150" Height="35" Background="#FF0E20D4" Foreground="#FFFBFBFB" FontSize="20" BorderThickness="0"/>
+            <TextBox x:Name="tbAddTitle_Copy" Height="35" Margin="398,161,332,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
+                <TextBox.Background>
+                    <SolidColorBrush Color="#FF3CF9F9" Opacity="0.2"/>
+                </TextBox.Background>
+
+            </TextBox>
+            <TextBox x:Name="tbAddTitle_Copy1" Height="35" Margin="398,201,332,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
+                <TextBox.Background>
+                    <SolidColorBrush Color="#FF3CF9F9" Opacity="0.2"/>
+                </TextBox.Background>
+
+            </TextBox>
+            <TextBox x:Name="tbAddTitle_Copy2" Height="35" Margin="398,241,332,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
+                <TextBox.Background>
+                    <SolidColorBrush Color="#FF3CF9F9" Opacity="0.2"/>
+                </TextBox.Background>
+
+            </TextBox>
+            <ComboBox HorizontalAlignment="Left" Margin="398,321,0,0" VerticalAlignment="Top" Width="170" Height="29"/>
+            <Label Content="Ededeti cím:" HorizontalAlignment="Center" Margin="264,162,507,0" VerticalAlignment="Top" FontSize="20" Width="129"/>
+            <Label Content="Szerző:" HorizontalAlignment="Center" Margin="312,199,507,0" VerticalAlignment="Top" FontSize="20" Width="81"/>
+            <Label Content="ISBN:" HorizontalAlignment="Center" Margin="331,241,507,0" VerticalAlignment="Top" FontSize="20" Width="62"/>
+            <TextBox x:Name="tbAddTitle_Copy3" Height="35" Margin="398,281,332,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
+                <TextBox.Background>
+                    <SolidColorBrush Color="#FF3CF9F9" Opacity="0.2"/>
+                </TextBox.Background>
+
+            </TextBox>
+            <Label Content="Ár:" HorizontalAlignment="Center" Margin="355,278,507,0" VerticalAlignment="Top" FontSize="20" Width="38" RenderTransformOrigin="0.452,0.973"/>
+        </Grid>
+
         <Grid x:Name="GridLogin" Visibility="Hidden" Width="900" Margin="0,0,-8,-8" >
             <TextBox x:Name="tbUsername" Height="35" Margin="394.095,121.286,327.905,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
                 <TextBox.Background>
@@ -26,7 +68,7 @@
             <Button x:Name="btRegistartion" Content="Regisztráció" Click="btRegistartionFrom_Click" HorizontalAlignment="Center" Margin="364,292,386,0" VerticalAlignment="Top" Width="150" Height="35" Background="#FF0E20D4" Foreground="#FFFBFBFB" FontSize="20" BorderThickness="0"/>
         </Grid>
 
-        <Grid x:Name="GridRegistration" Visibility="Visible" Width="900" Margin="0,0,-8,-8" >
+        <Grid x:Name="GridRegistration" Visibility="Hidden" Width="900" Margin="0,0,-8,-8" >
             <TextBox x:Name="tbRegUsername" Height="35" Margin="394.095,121.286,327.905,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
                 <TextBox.Background>
                     <SolidColorBrush Color="#FF3CF9F9" Opacity="0.2"/>
@@ -56,8 +98,9 @@
                 </TextBox.Background>
 
             </TextBox>
-            <Button x:Name="btRegistartion_Copy" Content="Regisztráció" Click="btRegistartion_Click" HorizontalAlignment="Center" Margin="364,292,386,0" VerticalAlignment="Top" Width="150" Height="35" Background="#FF0E20D4" Foreground="#FFFBFBFB" FontSize="20" BorderThickness="0"/>
-            <Button x:Name="btRegistartion_Back" Content="Vissza" Click="btRegistartion_Back" HorizontalAlignment="Center" Margin="364,332,386,0" VerticalAlignment="Top" Width="150" Height="35" Background="#FF0E20D4" Foreground="#FFFBFBFB" FontSize="20" BorderThickness="0"/>
+            <Button x:Name="btRegistartion_Finish" Content="Regisztráció" Click="btRegistartion_Click" HorizontalAlignment="Center" Margin="364,341,386,0" VerticalAlignment="Top" Width="150" Height="35" Background="#FF0E20D4" Foreground="#FFFBFBFB" FontSize="20" BorderThickness="0"/>
+            <Button x:Name="btRegistartion_Back" Content="Vissza" Click="btRegistartionBack_Click" HorizontalAlignment="Center" Margin="364,381,386,0" VerticalAlignment="Top" Width="150" Height="35" Background="#FF0ED47A" Foreground="#FFFBFBFB" FontSize="20" BorderThickness="0"/>
+            <CheckBox x:Name="cbNewUserAdmin" Content="Adminisztrátor" HorizontalAlignment="Left" Margin="398,287,0,0" VerticalAlignment="Top" Width="170"/>
         </Grid>
 
         <Grid x:Name="GridMenu" Visibility="Hidden" Width="900" Height="Auto" Margin="0,-10,-6,10" Loaded="GridMenu_Loaded">

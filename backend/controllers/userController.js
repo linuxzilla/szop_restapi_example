@@ -39,16 +39,23 @@ exports.login = async (req, res) => {
 };
 
 exports.registration = async (req, res) => {
+    console.log(req.body)
     const salt = await bcrypt.genSalt(10);
     const hasPassword = await bcrypt.hash(req.body.password, salt);
     const newUuid = uuidv4();
+
     const user = new User({
         username: req.body.username,
         email: req.body.email,
         name: req.body.name,
         password: hasPassword,
-        uuid: newUuid
+        uuid: newUuid,
     });
+
+    if (req.body.isAdmin) {
+        user.roleId = 1;
+    }
+
     try {
         await User.create(user);
         res.status(200).send('New user registered');

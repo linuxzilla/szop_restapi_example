@@ -135,6 +135,20 @@ namespace Client
             CheckExceptions(numericStatusCode, response.Content);
         }
 
+        public static void Registration(NewUserHelper user)
+        {
+            var client = new RestClient(serverURl + userRoute);
+            var request = new RestRequest("registration", Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            request.AddJsonBody(user);
+            IRestResponse response = client.Execute(request);
+
+            HttpStatusCode statusCode = response.StatusCode;
+            int numericStatusCode = (int)statusCode;
+
+            CheckExceptions(numericStatusCode, response.Content);
+        }
+
         private static void CheckExceptions(int code, string messageContent)
         {
             if (code == 401)

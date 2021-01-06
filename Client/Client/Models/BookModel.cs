@@ -9,7 +9,7 @@ namespace Client
     public class BookModel
     {
         public int Id { get; set; }
-        public Genres Genre { get; set; }
+        public Genres GenreId { get; set; }
         public string Isbn { get; set; }
         public string Title { get; set; }
         public string OriginalTitle { get; set; }
@@ -23,7 +23,7 @@ namespace Client
         { 
             get 
             {
-                switch (this.Genre)
+                switch (this.GenreId)
                 {
                     case Genres.CLASSIC:
                         return "CLASSIC";

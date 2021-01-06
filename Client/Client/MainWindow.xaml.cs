@@ -145,6 +145,7 @@ namespace Client
                         {
                             ApiController.Delete(row.Id);
                             row = null;
+                            Refresh();
                         }
                     }
                     catch (Exception ex)
@@ -178,7 +179,23 @@ namespace Client
 
         private void btRegistartion_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                NewUserHelper newUser = new NewUserHelper();
+                newUser.email = tbRegUsername.Text;
+                newUser.username = tbRegUsername.Text;
+                newUser.name = tbFullname.Text;
+                newUser.password = tbPassword.Password;
+                newUser.isAdmin = cbNewUserAdmin.IsEnabled;
+                ApiController.Registration(newUser);
+                GridRegistration.Visibility = Visibility.Hidden;
+                GridLogin.Visibility = Visibility.Visible;
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btRegistartionFrom_Click(object sender, RoutedEventArgs e)
@@ -186,6 +203,12 @@ namespace Client
             GridLogin.Visibility = Visibility.Hidden;
             GridMenu.Visibility = Visibility.Hidden;
             GridRegistration.Visibility = Visibility.Visible;
+        }
+
+        private void btRegistartionBack_Click(object sender, RoutedEventArgs e)
+        {
+            GridRegistration.Visibility = Visibility.Hidden;
+            GridLogin.Visibility = Visibility.Visible;
         }
     }
 }
