@@ -8,45 +8,55 @@
         Title="MainWindow" Height="auto" Width="900">
     <Grid>
         <Grid x:Name="GridAddBook" Visibility="Hidden" Width="900" Margin="0,0,-8,-8" >
-            <TextBox x:Name="tbAddTitle" Height="35" Margin="394.095,121.286,327.905,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
+            <TextBox x:Name="tbAddTitle" Height="35" Margin="265,123,465,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
                 <TextBox.Background>
                     <SolidColorBrush Color="#FF3CF9F9" Opacity="0.2"/>
                 </TextBox.Background>
 
             </TextBox>
             <Label Content="Új könyv hozzáadása" HorizontalAlignment="Center" Margin="197.264,56.742,220.318,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="482.418"/>
-            <Label Content="Cím:" HorizontalAlignment="Center" Margin="331,120,507,0" VerticalAlignment="Top" FontSize="20" Width="62"/>
-            <Button x:Name="btAddNewBookFinished" Content="Hozzáadás" Click="btLogin_Click" HorizontalAlignment="Center" Margin="724,10,26,0" VerticalAlignment="Top" Width="150" Height="35" Background="#FF0ED495" Foreground="#FFFBFBFB" FontSize="20" BorderThickness="0"/>
-            <Button x:Name="btBack_Main" Content="Vissza" Click="btRegistartionFrom_Click" HorizontalAlignment="Center" Margin="21,10,729,0" VerticalAlignment="Top" Width="150" Height="35" Background="#FF0E20D4" Foreground="#FFFBFBFB" FontSize="20" BorderThickness="0"/>
-            <TextBox x:Name="tbAddTitle_Copy" Height="35" Margin="398,161,332,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
+            <Label Content="Cím:" HorizontalAlignment="Center" Margin="197,121,641,0" VerticalAlignment="Top" FontSize="20" Width="62"/>
+            <Button x:Name="btAddNewBookFinished" Content="Hozzáadás" Click="btAddNewBook_Click" HorizontalAlignment="Center" Margin="724,10,26,0" VerticalAlignment="Top" Width="150" Height="35" Background="#FF0ED495" Foreground="#FFFBFBFB" FontSize="20" BorderThickness="0"/>
+            <Button x:Name="btBack_Main" Content="Vissza" Click="btBackMainClick" HorizontalAlignment="Center" Margin="21,10,729,0" VerticalAlignment="Top" Width="150" Height="35" Background="#FF0E20D4" Foreground="#FFFBFBFB" FontSize="20" BorderThickness="0"/>
+            <TextBox x:Name="tbAddTitleOriginal" Height="35" Margin="265,163,465,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
                 <TextBox.Background>
                     <SolidColorBrush Color="#FF3CF9F9" Opacity="0.2"/>
                 </TextBox.Background>
 
             </TextBox>
-            <TextBox x:Name="tbAddTitle_Copy1" Height="35" Margin="398,201,332,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
+            <TextBox x:Name="tbAddAuthor" Height="35" Margin="265,205,465,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
                 <TextBox.Background>
                     <SolidColorBrush Color="#FF3CF9F9" Opacity="0.2"/>
                 </TextBox.Background>
 
             </TextBox>
-            <TextBox x:Name="tbAddTitle_Copy2" Height="35" Margin="398,241,332,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
+            <TextBox x:Name="tbAddIsbn" Height="35" Margin="265,245,465,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
                 <TextBox.Background>
                     <SolidColorBrush Color="#FF3CF9F9" Opacity="0.2"/>
                 </TextBox.Background>
 
             </TextBox>
-            <ComboBox HorizontalAlignment="Left" Margin="398,321,0,0" VerticalAlignment="Top" Width="170" Height="29"/>
-            <Label Content="Ededeti cím:" HorizontalAlignment="Center" Margin="264,162,507,0" VerticalAlignment="Top" FontSize="20" Width="129"/>
-            <Label Content="Szerző:" HorizontalAlignment="Center" Margin="312,199,507,0" VerticalAlignment="Top" FontSize="20" Width="81"/>
-            <Label Content="ISBN:" HorizontalAlignment="Center" Margin="331,241,507,0" VerticalAlignment="Top" FontSize="20" Width="62"/>
-            <TextBox x:Name="tbAddTitle_Copy3" Height="35" Margin="398,281,332,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
+            <ComboBox x:Name="cbGenres" HorizontalAlignment="Left" Margin="265,370,0,0" VerticalAlignment="Top" Width="170" Height="29"/>
+            <Label Content="Ededeti cím:" HorizontalAlignment="Center" Margin="126,163,641,0" VerticalAlignment="Top" FontSize="20" Width="133"/>
+            <Label Content="Szerző:" HorizontalAlignment="Center" Margin="176,205,641,0" VerticalAlignment="Top" FontSize="20" Width="83"/>
+            <Label Content="ISBN:" HorizontalAlignment="Center" Margin="188,247,641,0" VerticalAlignment="Top" FontSize="20" Width="71"/>
+            <TextBox x:Name="tbAddPrice" Height="35" Margin="265,286,465,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black">
                 <TextBox.Background>
                     <SolidColorBrush Color="#FF3CF9F9" Opacity="0.2"/>
                 </TextBox.Background>
 
             </TextBox>
-            <Label Content="Ár:" HorizontalAlignment="Center" Margin="355,278,507,0" VerticalAlignment="Top" FontSize="20" Width="38" RenderTransformOrigin="0.452,0.973"/>
+            <Label Content="Ár:" HorizontalAlignment="Center" Margin="212,278,641,0" VerticalAlignment="Top" FontSize="20" Width="47" RenderTransformOrigin="0.452,0.973"/>
+            <Label Content="Categória:" HorizontalAlignment="Center" Margin="148,362,641,0" VerticalAlignment="Top" FontSize="20" Width="111" RenderTransformOrigin="0.452,0.973"/>
+            <TextBox x:Name="tbAddDate" Height="35" Margin="265,326,465,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" HorizontalAlignment="Center" FontSize="20" BorderThickness="0,0,0,2" BorderBrush="Black" Text="2020-11-30">
+                <TextBox.Background>
+                    <SolidColorBrush Color="#FF3CF9F9" Opacity="0.2"/>
+                </TextBox.Background>
+
+            </TextBox>
+            <Label Content="Megjelenés dátuma:" HorizontalAlignment="Center" Margin="59,320,635,0" VerticalAlignment="Top" FontSize="20" Width="206" RenderTransformOrigin="0.452,0.973"/>
+            <TextBox x:Name="tbAddDesc" HorizontalAlignment="Left" Height="236" Margin="453,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="421"/>
+            <Label Content="Leírás:" HorizontalAlignment="Center" Margin="453,121,374,0" VerticalAlignment="Top" FontSize="20" Width="73"/>
         </Grid>
 
         <Grid x:Name="GridLogin" Visibility="Hidden" Width="900" Margin="0,0,-8,-8" >

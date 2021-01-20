@@ -57,7 +57,7 @@ UserModel.create = async (value) => {
     if (tmp[0].iDs) {
         throw new UuidAlreadyExist();
     }
-    await db.query(constants.ADD_NEW_USER, [value.email, value.username, value.password,value.name, value.uuid]);
+    await db.query(constants.ADD_NEW_USER, [value.email, value.username, value.password,value.name, value.uuid, value.roleId]);
 };
 
 UserModel.UpdateToken = async (token, uuid) => {

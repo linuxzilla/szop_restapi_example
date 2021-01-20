@@ -12,9 +12,10 @@ namespace Client
         public string Isbn { get; set; }
         public string Title { get; set; }
         public string OriginalTitle { get; set; }
-        public DateTime ReleaseDate { get; set; }
+        public string ReleaseDate { get; set; }
         public string Author { get; set; }
         public string Description { get; set; }
         public int Price { get; set; }
+
     }
 }

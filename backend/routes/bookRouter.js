@@ -7,7 +7,7 @@ bookRouter.put('/like/:book', authController.authenticate, bookController.likeBo
 bookRouter.put('/dislike/:book', authController.authenticate, bookController.dislikeBook);
 bookRouter.put('/book/:id', authController.authenticate, bookController.getBookById);
 
-bookRouter.post('/add',authController.authenticate, authController.adminOnly, bookController.allBook);
+bookRouter.post('/add',authController.authenticate, authController.adminOnly, bookController.addBook);
 bookRouter.delete('/delete/:id',authController.authenticate, authController.adminOnly, bookController.deleteBook);
 //bookRouter.put('/modify/:id',authController.authenticate, authController.adminOnly, bookController.modifyBook);
 

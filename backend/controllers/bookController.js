@@ -22,6 +22,9 @@ exports.addBook = async (req, res) => {
         price : req.body.price
     });
     try {
+        console.log(
+            book
+        );
         await Book.AddBook(book);
         res.status(200).send('New book added');
     }

@@ -101,13 +101,25 @@ namespace Client
             CheckExceptions(numericStatusCode, response.Content);
         }
 
-        private static void Add(AddBookHelper book)
+        public static void Add(Genres genre, string isbn, string title, string originalTitle, string releaseDate, string author, string description, int price)
         {
             var client = new RestClient(serverURl + bookRoute);
             var request = new RestRequest("add", Method.POST);
             request.AddHeader("Authorization", SessionToken);
             request.RequestFormat = DataFormat.Json;
-            request.AddJsonBody(book);
+            request.AddJsonBody(
+                new AddBookHelper
+                {
+                    Genre = genre,
+                    Isbn = isbn,
+                    Title = title,
+                    OriginalTitle = originalTitle,
+                    ReleaseDate = releaseDate,
+                    Author = author,
+                    Description = description,
+                    Price = price,
+                }
+                );
             IRestResponse response = client.Execute(request);
 
             HttpStatusCode statusCode = response.StatusCode;

@@ -55,6 +55,9 @@ exports.registration = async (req, res) => {
     if (req.body.isAdmin) {
         user.roleId = 1;
     }
+    else {
+        user.roleId = 2;
+    }
 
     try {
         await User.create(user);

@@ -125,13 +125,15 @@ namespace Client
 
         private void GridMenu_Loaded(object sender, RoutedEventArgs e)
         {
-
+            cbGenres.ItemsSource = Enum.GetValues(typeof(Genres)).Cast<Genres>();
         }
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            GridMenu.Visibility = Visibility.Hidden;
+            GridAddBook.Visibility = Visibility.Visible;
         }
+
 
         private void btDelete_Click(object sender, RoutedEventArgs e)
         {
@@ -182,7 +184,7 @@ namespace Client
             try
             {
                 NewUserHelper newUser = new NewUserHelper();
-                newUser.email = tbRegUsername.Text;
+                newUser.email = tbRegEmail.Text;
                 newUser.username = tbRegUsername.Text;
                 newUser.name = tbFullname.Text;
                 newUser.password = tbPassword.Password;
@@ -190,7 +192,6 @@ namespace Client
                 ApiController.Registration(newUser);
                 GridRegistration.Visibility = Visibility.Hidden;
                 GridLogin.Visibility = Visibility.Visible;
-
             }
             catch (Exception ex)
             {
@@ -209,6 +210,39 @@ namespace Client
         {
             GridRegistration.Visibility = Visibility.Hidden;
             GridLogin.Visibility = Visibility.Visible;
+        }
+
+        private void btBackMainClick(object sender, RoutedEventArgs e)
+        {
+            GridAddBook.Visibility = Visibility.Hidden;
+            GridMenu.Visibility = Visibility.Visible;
+        }
+
+        private void btAddNewBook_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //string tmpStrGenre = ((ComboBoxItem)(sender as ComboBox) cbGenres.SelectedItem).Content.ToString();
+                //Genres tmpGenre = (Genres)Enum.Parse(typeof(Genres), tmpStrGenre, true);
+                ApiController.Add(
+                   //tmpGenre,
+                   Genres.CLASSIC,
+                   tbAddIsbn.Text,
+                   tbAddTitle.Text,
+                   tbAddTitleOriginal.Text,
+                   //DateTime.ParseExact(tbAddDate.Text, "yyyy-MM-dd HH",
+                   //                    System.Globalization.CultureInfo.InvariantCulture),
+                   tbAddDate.Text,
+                   tbAddAuthor.Text,
+                   tbDesc.Text,
+                   int.Parse(tbAddPrice.Text)
+                    );
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
